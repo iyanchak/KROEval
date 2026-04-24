@@ -1,0 +1,49 @@
+image:
+  repository: registry.k8s.io/kro/controller
+  tag: v0.9.1
+  pullPolicy: IfNotPresent
+
+deployment:
+  replicaCount: 1
+  containerPort: 8080
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+metrics:
+  service:
+    create: false
+
+serviceAccount:
+  create: true
+
+metadata:
+  includeHelmChart: true
+
+debug:
+  pprof:
+    enabled: false
+
+config:
+  metricsBindAddress: :8080
+  instance:
+    requeueInterval: 10s
+  rgd:
+    maxCollectionSize: 100
+
+rbac:
+  legacy: false
+
+
+controller:
+  metrics:
+    port: 18080
+  webhook:
+    port: 9443
+  # If the chart has a direct containerPort key, set it here:
+  containerPort: 8080

@@ -1,0 +1,50 @@
+apiVersion: kro.run/v1alpha1
+kind: ResourceGraphDefinition
+metadata:
+  name: kro-test-135
+spec:
+  schema:
+    # --- CRD METADATA (Sibling to spec) ---
+    group: demo.kro.run
+    kind: TestApp
+    apiVersion: v1alpha4
+    # --- CRD VARIABLES (The fields users fill out) ---
+    spec:
+      replicas: integer | default=1
+      image: string | default="localhost:32000/counter-server:latest"
+  resources:
+    - id: deployment126
+      template:
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: ${schema.metadata.name}-dep
+        spec:
+          replicas: ${schema.spec.replicas}
+          selector:
+            matchLabels:
+              app: ${schema.metadata.name}-app
+          template:
+            metadata:
+              labels:
+                app: ${schema.metadata.name}-app
+            spec:
+              containers:
+                - name: app
+                  image: ${schema.spec.image}
+                  ports:
+                    - containerPort: 8080
+
+    - id: service126
+      template:
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: ${schema.metadata.name}-svc
+        spec:
+          selector:
+            app: ${schema.metadata.name}-app
+          ports:
+            - port: 80
+              targetPort: 8080
+          type: NodePort

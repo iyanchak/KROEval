@@ -1,0 +1,7 @@
+apiVersion: demo.kro.run/v1alpha4  # This must match your RGD exactly
+kind: TestApp
+metadata:
+  name: my-app-instance
+spec:
+  replicas: 2
+  # 'image' is optional because you set a default in the RGD

@@ -9,7 +9,7 @@ The implementation was transitioned to the official KRO OCI registry and updated
 ### Key Changes Implemented
 1.  **Official Chart Integration**: Migrated from local operator files to the official KRO chart using `oci://registry.k8s.io/kro/charts/kro`.
 2.  **Image Updates**:
-    * **KRO Controller**: Updated to `v0.9.1`.
+    * **KRO Controller**: Updated to `v0.8.5`.
     * **Sample App**: Configured to use a local registry image: `localhost:32000/counter-server:latest`.
 3.  **Value Alignment**: Adjusted `values.yaml` to include mandatory keys for `metrics`, `serviceAccount`, `metadata`, `debug`, and `config` to ensure compatibility with the official chart templates.
 4.  **Schema Evolution**: Implemented version bumping (`v1alpha1` → `v1alpha4`) to handle breaking changes in the ResourceGraphDefinition (RGD) without requiring manual CRD deletions.
@@ -26,7 +26,7 @@ helm package ./rgd-definition
 helm package ./app-instance
 ```
 * `kro-crds-1.0.0.tgz` — The base Custom Resource Definitions.
-* `kro-v0.9.1.tgz` — Unused and ignore
+* `kro-v0.8.5.tgz` — Unused and ignore
 * `rgd-definition-1.0.0.tgz` — The `ResourceGraphDefinition` (Deployment + Service template).
 * `app-instance-1.0.0.tgz` — The final user-facing application instance.
 

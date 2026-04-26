@@ -17,7 +17,14 @@ The implementation was transitioned to the official KRO OCI registry and updated
 ---
 
 ## 📦 Packaged Artifacts
-The following Helm charts were linted and packaged:
+They can be packaged by the following Helm commands, each producing the listed .tgz files:
+
+```bash
+helm package ./kro-crds
+helm package ./kro-operator
+helm package ./rgd-definition
+helm package ./app-instance
+```
 * `kro-crds-1.0.0.tgz` — The base Custom Resource Definitions.
 * `kro-v0.9.1.tgz` — Unused and ignore
 * `rgd-definition-1.0.0.tgz` — The `ResourceGraphDefinition` (Deployment + Service template).

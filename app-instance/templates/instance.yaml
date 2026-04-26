@@ -1,4 +1,4 @@
-apiVersion: demo.kro.run/v1alpha4  # This must match your RGD exactly
+apiVersion: demo.kro.run/v1alpha5  # This must match your RGD exactly
 kind: TestApp
 metadata:
   name: my-app-instance

@@ -11,8 +11,7 @@ The implementation was transitioned to the official KRO OCI registry and updated
 2.  **Image Updates**:
     * **KRO Controller**: Updated to `v0.8.5`.
     * **Sample App**: Configured to use a local registry image: `localhost:32000/counter-server:latest`.
-3.  **Value Alignment**: Adjusted `values.yaml` to include mandatory keys for `metrics`, `serviceAccount`, `metadata`, `debug`, and `config` to ensure compatibility with the official chart templates.
-4.  **Schema Evolution**: Implemented version bumping (`v1alpha1` → `v1alpha4`) to handle breaking changes in the ResourceGraphDefinition (RGD) without requiring manual CRD deletions.
+3.  **Schema Evolution**: Implemented version bumping (`v1alpha1` → `v1alpha5`) to handle breaking changes in the ResourceGraphDefinition (RGD) without requiring manual CRD deletions.
 
 ---
 

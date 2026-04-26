@@ -1,7 +1,7 @@
 apiVersion: kro.run/v1alpha1
 kind: ResourceGraphDefinition
 metadata:
-  name: kro-test-135
+  name: kro-test-136
 spec:
   schema:
     # --- CRD METADATA (Sibling to spec) ---
